@@ -47,7 +47,7 @@ export default function Home() {
     <main className="relative min-h-screen text-gray-900 bg-gradient-to-r from-[#eef1f6] via-[#f3f4f8] to-[#e9c6f3]">
 
       {/* Navbar */}
-      <header className="relative flex justify-between items-center px-6 md:px-16 lg:px-24 py-4 md:py-5 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <header className="relative flex justify-between items-center px-6 md:px-16 lg:px-24 py-4 md:py-5 bg-transparent shadow-none sticky top-0 z-50">
         <div className="flex items-center gap-3">
           {/* Logo - Desktop Only */}
           <div className="hidden lg:flex items-center">
@@ -293,14 +293,13 @@ export default function Home() {
             Discover the Latest <br />
             <span className="relative inline-block">
               Furniture Trends
-              <svg className="absolute left-0 -bottom-2 w-2/3 h-3" viewBox="0 0 160 12" fill="none">
-                <path d="M5 7c40-10 110-10 150 0" stroke="#ec4899" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
+              <img src="/images/smile.svg" alt="Smile" className="absolute left-0 -bottom-3 w-2/3 h-auto" />
             </span>
           </h1>
           <p className="text-gray-500 text-lg mb-8 max-w-lg">
             Shop the latest furniture items and stay ahead of the style game with our curated collection of premium pieces.
           </p>
+          <div className="h-[160px]"></div>
           <button className="bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2">
             Explore Now
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -311,9 +310,12 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-4 md:gap-6 z-10">
           <div className="relative group aspect-square">
             <img src={furnitureImages[0]} alt="Sofa" className="rounded-2xl w-full h-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300" />
+           <span className="absolute top-3 left-3 bg-pink-100 text-pink-600 text-xs px-3 py-1.5 rounded-full font-semibold">New</span>
           </div>
-          <div className="relative group aspect-square mt-6 md:mt-8">
+          <div className="relative group aspect-square">
             <img src={furnitureImages[1]} alt="Chair" className="rounded-2xl w-full h-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300" />
+             <span className="absolute top-3 left-3 bg-green-100 text-green-600 text-xs px-3 py-1.5 rounded-full font-semibold">New</span>
+            
           </div>
           <div className="col-span-2 relative group">
             <img src={furnitureImages[2]} alt="Living Room" className="rounded-2xl w-full h-64 md:h-80 object-cover shadow-lg group-hover:scale-105 transition-transform duration-300" />
@@ -325,16 +327,10 @@ export default function Home() {
       {/* Category Filter */}
       <section className="px-6 md:px-16 lg:px-24 py-6">
          <div className="mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Stylish Collection of Furniture</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Stylish Collection of <span className="relative inline-block">Furniture<img src="/images/curve.svg" alt="Curve" className="absolute left-28 -top-20 w-32 h-auto" /></span></h2>
           <p className="text-gray-500 max-w-2xl">
             Stay updated with our information and engaging blog posts about modern furniture and fashion in the industry
           </p>
-            <span className="relative inline-block">
-              Stylish Collection of Furniture
-              <svg className="absolute left-0 bottom-0 w-32 h-6 -mb-2" viewBox="0 0 128 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 19c30-10 80-10 120 0" stroke="#E04BFF" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </span>
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map((cat, i) => (
@@ -357,7 +353,7 @@ export default function Home() {
       <section className="px-6 md:px-16 lg:px-24 py-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {products.map((product, idx) => (
-            <div key={idx} className="group bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+            <div key={idx} className="group bg-transparent p-4 rounded-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
               <div className="relative overflow-hidden rounded-xl mb-4">
                 <img
                   src={product.image}
@@ -476,89 +472,94 @@ export default function Home() {
       </section>
 
       {/* Testimonial & Stats Section */}
-      <section className="py-20">
-        <div className="bg-white shadow-xl overflow-hidden">
+      <section className="py-0">
+        <div className="bg-white overflow-hidden rounded-t-3xl min-h-[832px]">
           <div className="grid lg:grid-cols-2">
-            <div className="p-8 md:p-10 flex items-start pt-6 order-1 lg:order-2">
-                <div className="flex flex-col items-start text-left w-full">
+            <div className="p-8 md:p-10 flex items-center pt-6 order-1 lg:order-2">
+                <div className="flex flex-col items-start text-left w-full max-w-lg">
 
-                  <p className="text-gray-400 text-sm font-medium mb-1">Customer Service</p>
-                  <h3 className="text-4xl md:text-5xl font-bold text-pink-600 mb-2 leading-tight">
-                    Success Story of<br />Our Customer
+                  <p className="text-gray-400 text-base font-medium mb-2">Customer Service</p>
+                  <h3 className="text-4xl md:text-5xl font-bold text-pink-600 mb-4 leading-tight">
+                    Success Story of <br/>Our Customer
                   </h3>
-                  <p className="text-pink-600 mb-8 max-w-md font-medium">
+                  <p className="text-pink-600 mb-10 max-w-md font-medium text-lg">
                   Emphasise time-saving and use numbers to maximise credibility.
                 </p>
-                <div className="grid grid-cols-2 gap-6 w-full pt-4">
+                <div className="grid grid-cols-2 gap-8 w-full pt-4">
                   <div className="text-left">
-                    <div className="text-4xl font-bold text-gray-900">10x</div>
-                    <div className="text-sm text-gray-500 mt-1">Products Sold</div>
+                    <div className="text-5xl font-bold text-gray-900">10x</div>
+                    <div className="text-base text-gray-500 mt-2">Products Sold</div>
                   </div>
                   <div className="text-left">
-                    <div className="text-4xl font-bold text-gray-900">5k+</div>
-                    <div className="text-sm text-gray-500 mt-1">Happy Customers</div>
+                    <div className="text-5xl font-bold text-gray-900">5k+</div>
+                    <div className="text-base text-gray-500 mt-2">Happy Customers</div>
                   </div>
                   <div className="text-left">
-                    <div className="text-4xl font-bold text-gray-900">300%</div>
-                    <div className="text-sm text-gray-500 mt-1">Sales Growth</div>
+                    <div className="text-5xl font-bold text-gray-900">300%</div>
+                    <div className="text-base text-gray-500 mt-2">Sales Growth</div>
                   </div>
                   <div className="text-left">
-                    <div className="text-4xl font-bold text-gray-900">100+</div>
-                    <div className="text-sm text-gray-500 mt-1">Major Clients</div>
+                    <div className="text-5xl font-bold text-gray-900">100+</div>
+                    <div className="text-base text-gray-500 mt-2">Major Clients</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center bg-gray-50 p-8 order-2 lg:order-1">
-              <img src={furnitureImages[3]} alt="Interior" className="h-80 md:h-96 w-auto object-contain rounded-3xl" />
+            <div className="flex items-center justify-center bg-white p-8 order-2 lg:order-1">
+              <img src={furnitureImages[3]} alt="Interior" className="h-[500px] md:h-[600px] w-auto object-contain rounded-3xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
+      <footer className="bg-[#F3F4F8] border-t border-gray-200 mt-0">
         <div className="px-6 md:px-16 lg:px-24 py-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            <div>
+          <div className="flex flex-wrap items-start gap-8">
+            {/* Logo and Subscribe Section */}
+            <div className="flex-1 min-w-[250px]">
               <div className="flex items-center gap-2 mb-4">
                 <img src="/images/logo.png" alt="FurniShop" className="h-8 w-auto" />
               </div>
               <p className="text-gray-500 text-sm mb-4">
                 Shop the latest furniture trends and enjoy premium quality and style for your home.
               </p>
-              <form className="flex gap-2">
+              <form className="flex gap-2 mb-4">
                 <input
                   type="email"
                   placeholder="Your email"
                   className="px-4 py-2.5 rounded-xl border border-gray-300 text-sm w-full focus:outline-none focus:border-gray-400"
                 />
-                <button className="bg-gray-100 text-gray-700 px-4 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-all">
+                <button className="bg-gray-100 text-gray-700 px-4 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-all whitespace-nowrap">
                   Subscribe
                 </button>
               </form>
-              <br/>
-              <p className="text-gray-500 text-sm mb-4">BY subscribing you agree to with our privacy and provide consent to recieve updates from our company</p>
+              <p className="text-gray-500 text-sm">
+                BY subscribing you agree to with our privacy and provide consent to recieve updates from our company
+              </p>
             </div>
-            <div>
+            {/* About Us */}
+            <div className="flex-1 min-w-[150px]">
               <h5 className="font-bold mb-4 text-gray-900">About Us</h5>
-              <ul className="text-gray-500 text-sm space-y-2">
+              <ul className="space-y-2 text-gray-500 text-sm">
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Our Story</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Careers</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Shipping Info</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Press</a></li>
               </ul>
             </div>
-            <div>
+            {/* Customer Support */}
+            <div className="flex-1 min-w-[150px]">
               <h5 className="font-bold mb-4 text-gray-900">Customer Support</h5>
-              <ul className="text-gray-500 text-sm space-y-2">
+              <ul className="space-y-2 text-gray-500 text-sm">
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">My Orders</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Returns & Refunds</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Contact Us</a></li>
               </ul>
             </div>
-            <div>
+            {/* Follow Us */}
+            <div className="flex-1 min-w-[150px]">
               <h5 className="font-bold mb-4 text-gray-900">Follow Us</h5>
               <div className="flex gap-3 mb-4">
                 <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-600 hover:text-white transition-all">
@@ -571,7 +572,7 @@ export default function Home() {
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
               </div>
-              <ul className="text-gray-500 text-sm space-y-2">
+              <ul className="space-y-2 text-gray-500 text-sm">
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Instagram</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">Facebook</a></li>
                 <li><a href="#" className="hover:text-purple-600 transition-colors">LinkedIn</a></li>
@@ -580,7 +581,7 @@ export default function Home() {
           </div>
         </div>
         <div className="border-t border-gray-200 py-6 text-center text-gray-400 text-sm">
-          © 2026 FurniShop. All Rights Reserved.
+          © 2026 GFurniture. All Rights Reserved.
           <div className="mt-4 flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
             <a href="#" className="hover:text-purple-600 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-purple-600 transition-colors">Terms of Service</a>
