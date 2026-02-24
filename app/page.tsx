@@ -4,8 +4,8 @@
 import { useState } from 'react';
 
 const furnitureImages = [
-  '/images/img16.png',
-  '/images/img15.png',
+  '/images/img16.svg',
+  '/images/img15.svg',
   '/images/img8.png',
   '/images/img11.png',
   '/images/img4.png',
